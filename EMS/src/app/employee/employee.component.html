@@ -1,1 +1,86 @@
-<p>employee works!</p>
+<nav class="navbar navbar-light bg-dark">
+<div class="container-fluid">
+    <h2 class="text-light primary py-3">Employee Management System</h2>
+
+    <div class="d-flex">
+        <button class="btn btn-success" (click)="add()"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>&nbsp
+        <button class="btn btn-warning">Logout</button>
+    </div>
+</div>
+
+</nav>
+
+<!--Tbale-->
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">E.ID</th>
+            <th scope="col">E.Name</th>
+            <th scope="col">E.Email</th>
+            <th scope="col">E.Mobile number</th>
+            <th scope="col">E.City</th>
+            <th scope="col">E.Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Ashwini</td>
+            <td>ashwini@gmail.com</td>
+            <td>9370793367</td>
+            <td>Pune</td>
+            <td>
+                <button class="btn btn-info"  (click)="update()" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>&nbsp;
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="background: blue;">
+          <h5 style="text-align: center; font-size: 20px; font-weight:620; color: aliceblue;" class="modal-title" id="exampleModalLabel">Employee Management System</h5>
+          
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="employeeForm">
+            <div class="mb-3 row">
+                <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="staticName" placeholder="Enter your name" formControlName="name">
+                </div>
+              </div>
+            <div class="mb-3 row">
+                <label for="emails" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="emails" placeholder="Enter your email" formControlName="email">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="cnumb" class="col-sm-2 col-form-label">Contact</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="cnumb" placeholder="Enter your contact" formControlName="contact">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="city" class="col-sm-2 col-form-label">City</label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control" id="city" placeholder="Enter your city" formControlName="city">
+                </div>
+              
+              </div>
+            </form>
+        </div>
+        <div style="background: blue;"  class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+          <button type="button"  *ngIf="showadd" class="btn btn-success" (click)="employeeAdd()">Add</button>
+          <button type="button" *ngIf="showupdate" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
